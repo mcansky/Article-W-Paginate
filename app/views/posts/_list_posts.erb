@@ -6,7 +6,7 @@
     <tr>
       <td><%= link_to post.title, post %></td>
       <td><%= link_to "Editer", edit_post_path(post) %></td>
-      <td><%= link_to "Supprimer", post, :confirm => 'Etes vous sûr ?', :method => :delete %></td>
+      <td><%= link_to_remote "Supprimer", :update => "posts", :url => {:action => "delete", :id => post.id, :page => params[:page]}, :confirm => 'Etes vous sûr ?' %></td>
     </tr>
   <% end %>
 </table>

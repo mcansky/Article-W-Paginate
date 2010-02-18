@@ -41,4 +41,12 @@ class PostsController < ApplicationController
     flash[:notice] = "Post détruit avec succès."
     redirect_to posts_url
   end
+  
+  def delete
+    post = Post.find(params[:id])
+    post.destroy
+    posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
+    render :partial => "list_posts", :locals => {:posts => posts}
+  end
+  
 end
