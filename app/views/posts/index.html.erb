@@ -1,17 +1,7 @@
 <h1>Posts</h1>
 
-<table>
-  <tr>
-    <th>Titre</th>
-  </tr>
-  <% for post in @posts %>
-    <tr>
-      <td><%= link_to post.title, post %></td>
-      <td><%= link_to "Editer", edit_post_path(post) %></td>
-      <td><%= link_to "Supprimer", post, :confirm => 'Etes vous sûr ?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-<%= will_paginate @posts %>
+<div id="posts">
+	<%= render "list_posts", :posts => @posts %>
+</div>
 
 <p><%= link_to "Nouveau Post", new_post_path %></p>
