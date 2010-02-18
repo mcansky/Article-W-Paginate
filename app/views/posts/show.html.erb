@@ -1,0 +1,16 @@
+<h1>Post</h1>
+
+<p>
+  <strong>Titre:</strong>
+  <%=h @post.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @post.content %>
+</p>
+
+<p>
+  <%= link_to "Editer", edit_post_path(@post) %> |
+  <%= link_to "Supprimer", @post, :confirm => 'Etes vous sûre ?', :method => :delete %> |
+  <%= link_to "Voir tous", posts_path %>
+</p>
